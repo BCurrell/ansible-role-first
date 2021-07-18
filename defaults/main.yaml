@@ -1,0 +1,12 @@
+---
+user:
+  ansible:
+    setup: "yes"
+    name: "ansible"
+    public_keys:
+      - ~
+  unprivileged:
+    setup: "no"
+    name: "brandon"
+    public_keys:
+      - ~

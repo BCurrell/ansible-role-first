@@ -1,0 +1,15 @@
+---
+- name: "Update aptitude cache"
+  apt:
+    update_cache: "yes"
+
+- name: "Install aptitude requirements"
+  apt:
+    name:
+      - "python3-apt"
+    state: "present"
+
+- name: "Install sudo"
+  package:
+    name: "sudo"
+    state": "present"

@@ -1,0 +1,15 @@
+---
+- name: "Sync portage repositories"
+  portage:
+    sync: "yes"
+
+- name: "Install portage requirements"
+  portage:
+    package:
+      - "app-portage/gentoolkit"
+    state: "present"
+
+- name: "Install sudo"
+  package:
+    name: "app-admin/sudo"
+    state: "present"

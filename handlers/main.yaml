@@ -1,0 +1,7 @@
+---
+- name: "Install aptitude requirements"
+  apt:
+    name:
+      - "python3-apt"
+    state: "present"
+    update_cache: "yes"
