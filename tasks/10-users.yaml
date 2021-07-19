@@ -38,7 +38,7 @@
   register: "output_user_unprivileged"
 
 - name: "Set up unprivileged user SSH config directory"
-  when: "{{ output_user_ansible.changed }}"
+  when: "{{ output_user_unprivileged.changed }}"
   file:
     path: "{{ output_user_unprivileged.home }}/.ssh/"
     state: "directory"
