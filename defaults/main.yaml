@@ -5,8 +5,10 @@ user:
     name: "ansible"
     public_keys:
       - ~
+    sudo: "passwordless"
   unprivileged:
     setup: "no"
     name: "brandon"
     public_keys:
       - ~
+    sudo: "yes"
