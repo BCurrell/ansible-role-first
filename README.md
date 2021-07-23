@@ -1,6 +1,8 @@
 # ansible-role-first
 
-## Ansible role used for first time run on an endpoint to prepare for future Ansible use
+Ansible role used for first-time setup of an endpoint, in preparation for future Ansible use.
+
+---
 
 ### What does this role do?
 
