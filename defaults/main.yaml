@@ -1,14 +1,14 @@
 ---
 user:
   ansible:
-    setup: "yes"
-    name: "ansible"
+    setup: yes
+    name: ansible
     public_keys:
       - ~
-    sudo: "passwordless"
+    sudo: passwordless
   unprivileged:
-    setup: "no"
-    name: "brandon"
+    setup: no
+    name: brandon
     public_keys:
       - ~
-    sudo: "yes"
+    sudo: yes
