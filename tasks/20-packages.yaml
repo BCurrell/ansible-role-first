@@ -1,18 +1,24 @@
 ---
-- name: "Test for aptitude"
+- name: Test for aptitude
   command:
-    cmd: "apt-get --help"
-  register: "command_apt_get"
+    cmd: apt-get --help
+  register: command_apt_get
 
-- name: "Found aptitude"
+- name: Found aptitude
   when: "{{ command_apt_get.rc }} == 0"
-  import_tasks: "20-packages-aptitude.yaml"
+  import_tasks: 20-packages-aptitude.yaml
 
-- name: "Test for portage"
+- name: Test for portage
   command:
-    cmd: "emerge --help"
-  register: "command_emerge"
+    cmd: emerge --help
+  register: command_emerge
 
-- name: "Found portage"
+- name: Found portage
   when: "{{ command_emerge.rc }} == 0"
-  import_tasks: "20-packages-portage.yaml"
+  import_tasks: 20-packages-portage.yaml
+
+- name: Set up sudo
+  template:
+    src: sudo/ansible.j2
+    dest: /etc/sudoers.d/ansible
+    mode: 0440
