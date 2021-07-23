@@ -1,6 +1,6 @@
 ---
-- name: "Set up users"
-  import_tasks: "10-users.yaml"
+- name: Set up users
+  import_tasks: 10-users.yaml
 
-- name: "Set up packages"
-  import_tasks: "20-packages.yaml"
+- name: Set up packages
+  import_tasks: 20-packages.yaml
