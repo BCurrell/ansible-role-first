@@ -6,22 +6,22 @@
     password_lock: yes
     state: present
     system: no
-  register: output_user_ansible
+  register: output-user-ansible
 
 - name: Set up Ansible user SSH config directory
-  when: "{{ output_user_ansible.changed }}"
+  when: "{{ output-user-ansible.changed }}"
   file:
-    path: "{{ output_user_ansible.home }}/.ssh/"
+    path: "{{ output-user-ansible.home }}/.ssh/"
     state: directory
     owner: "{{ user.ansible.name }}"
     group: "{{ user.ansible.name }}"
     mode: 0700
 
 - name: Set up Ansible user SSH key
-  when: "{{ user.ansible.public_keys }}"
-  loop: "{{ user.ansible.public_keys }}"
+  when: "{{ user.ansible.public-keys }}"
+  loop: "{{ user.ansible.public-keys }}"
   lineinfile:
-    path: "{{ output_user_ansible.home }}/.ssh/authorized_keys"
+    path: "{{ output-user-ansible.home }}/.ssh/authorized_keys"
     line: "{{ item }}"
     state: present
     owner: "{{ user.ansible.name }}"
@@ -35,22 +35,22 @@
     password_lock: yes
     state: present
     system: no
-  register: output_user_unprivileged
+  register: output-user-unprivileged
 
 - name: Set up unprivileged user SSH config directory
-  when: "{{ output_user_unprivileged.changed }}"
+  when: "{{ output-user-unprivileged.changed }}"
   file:
-    path: "{{ output_user_unprivileged.home }}/.ssh/"
+    path: "{{ output-user-unprivileged.home }}/.ssh/"
     state: directory
     owner: "{{ user.unprivileged.name }}"
     group: "{{ user.unprivileged.name }}"
     mode: 0700
 
 - name: Set up unprivileged user SSH key
-  when: "{{ user.unprivileged.public_keys }}"
-  loop: "{{ user.unprivileged.public_keys }}"
+  when: "{{ user.unprivileged.public-keys }}"
+  loop: "{{ user.unprivileged.public-keys }}"
   lineinfile:
-    path: "{{ output_user_unprivileged.home }}/.ssh/authorized_keys"
+    path: "{{ output-user-unprivileged.home }}/.ssh/authorized_keys"
     line: "{{ item }}"
     state: present
     owner: "{{ user.unprivileged.name }}"

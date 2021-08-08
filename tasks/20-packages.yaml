@@ -2,19 +2,19 @@
 - name: Test for aptitude
   command:
     cmd: apt-get --help
-  register: command_apt_get
+  register: command-apt-get
 
 - name: Found aptitude
-  when: "{{ command_apt_get.rc }} == 0"
+  when: "{{ command-apt-get.rc }} == 0"
   import_tasks: 20-packages-aptitude.yaml
 
 - name: Test for portage
   command:
     cmd: emerge --help
-  register: command_emerge
+  register: command-emerge
 
 - name: Found portage
-  when: "{{ command_emerge.rc }} == 0"
+  when: "{{ command-emerge.rc }} == 0"
   import_tasks: 20-packages-portage.yaml
 
 - name: Set up sudo
