@@ -1,6 +1,6 @@
 ---
 - name: Set up Ansible user
-  when: "user.ansible.setup"
+  when: user.ansible.setup
   user:
     name: "{{ user.ansible.name }}"
     password_lock: yes
@@ -9,7 +9,7 @@
   register: output_user_ansible
 
 - name: Set up Ansible user SSH config directory
-  when: output_user_ansible.changed
+  when: user.ansible.setup
   file:
     path: "{{ output_user_ansible.home }}/.ssh/"
     state: directory
@@ -18,7 +18,7 @@
     mode: 0700
 
 - name: Set up Ansible user SSH key
-  when: user.ansible.public_keys
+  when: user.ansible.setup and user.ansible.public_keys
   loop: "{{ user.ansible.public_keys }}"
   lineinfile:
     path: "{{ output_user_ansible.home }}/.ssh/authorized_keys"
@@ -38,7 +38,7 @@
   register: output_user_unprivileged
 
 - name: Set up unprivileged user SSH config directory
-  when: output_user_unprivileged.changed
+  when: user.unprivileged.setup
   file:
     path: "{{ output_user_unprivileged.home }}/.ssh/"
     state: directory
@@ -47,7 +47,7 @@
     mode: 0700
 
 - name: Set up unprivileged user SSH key
-  when: user.unprivileged.public_keys
+  when: user.unprivileged.setup and user.unprivileged.public_keys
   loop: "{{ user.unprivileged.public_keys }}"
   lineinfile:
     path: "{{ output_user_unprivileged.home }}/.ssh/authorized_keys"
