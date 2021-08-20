@@ -1,5 +1,6 @@
 ---
 user:
+  first: root
   ansible:
     setup: yes
     name: ansible
