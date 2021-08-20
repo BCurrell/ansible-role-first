@@ -3,6 +3,7 @@
   command:
     cmd: apt-get --help
   register: command_apt_get
+  warn: false
 
 - name: Found aptitude
   when: "command_apt_get.rc == 0"

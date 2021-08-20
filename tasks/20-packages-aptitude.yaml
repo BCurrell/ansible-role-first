@@ -12,5 +12,6 @@
 
 - name: Install sudo
   package:
-    name: sudo
-    state": present
+    name:
+      - sudo
+    state: present
