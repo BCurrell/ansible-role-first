@@ -2,8 +2,8 @@
 - name: Test for aptitude
   command:
     cmd: apt-get --help
+    warn: false
   register: command_apt_get
-  warn: false
 
 - name: Found aptitude
   when: "command_apt_get.rc == 0"
