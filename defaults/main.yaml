@@ -3,12 +3,12 @@ user:
   ansible:
     setup: yes
     name: ansible
-    public-keys:
+    public_keys:
       - ~
     sudo: passwordless
   unprivileged:
     setup: no
     name: brandon
-    public-keys:
+    public_keys:
       - ~
     sudo: yes

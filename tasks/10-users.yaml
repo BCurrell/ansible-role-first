@@ -18,8 +18,8 @@
     mode: 0700
 
 - name: Set up Ansible user SSH key
-  when: user.ansible.public-keys
-  loop: "{{ user.ansible.public-keys }}"
+  when: user.ansible.public_keys
+  loop: "{{ user.ansible.public_keys }}"
   lineinfile:
     path: "{{ output_user_ansible.home }}/.ssh/authorized_keys"
     line: "{{ item }}"
@@ -47,8 +47,8 @@
     mode: 0700
 
 - name: Set up unprivileged user SSH key
-  when: user.unprivileged.public-keys
-  loop: "{{ user.unprivileged.public-keys }}"
+  when: user.unprivileged.public_keys
+  loop: "{{ user.unprivileged.public_keys }}"
   lineinfile:
     path: "{{ output_user_unprivileged.home }}/.ssh/authorized_keys"
     line: "{{ item }}"
