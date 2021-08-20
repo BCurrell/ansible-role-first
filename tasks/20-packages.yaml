@@ -4,6 +4,7 @@
     cmd: apt-get --help
     warn: false
   register: command_apt_get
+  failed_when: false
 
 - name: Found aptitude
   when: "command_apt_get.rc == 0"
@@ -13,6 +14,7 @@
   command:
     cmd: emerge --help
   register: command_emerge
+  failed_when: false
 
 - name: Found portage
   when: "command_emerge.rc == 0"
