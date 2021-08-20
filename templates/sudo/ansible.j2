@@ -1,19 +1,17 @@
 # {{ ansible_managed }}
-
 {# Ansible user #}
 {% if user.ansible.setup %}
-	{% if user.ansible.sudo|lower == "passwordless" %}
-		{{ user.ansible.name }}	ALL=(ALL:ALL) NOPASSWD: ALL
-	{% elif user.ansible.sudo %}
-		{{ user.ansible.name }}	ALL=(ALL:ALL) ALL
-	{% endif %}
+{% if user.ansible.sudo|lower == "passwordless" %}
+{{ user.ansible.name }}	ALL=(ALL:ALL) NOPASSWD: ALL
+{% elif user.ansible.sudo %}
+{{ user.ansible.name }}	ALL=(ALL:ALL) ALL
 {% endif %}
-
+{% endif %}
 {# Unprivileged user #}
 {% if user.unprivileged.setup %}
-	{% if user.unprivileged.sudo|lower == "passwordless" %}
-		{{ user.unprivileged.name }}	ALL=(ALL:ALL) NOPASSWD: ALL
-	{% elif user.unprivileged.sudo %}
-		{{ user.unprivileged.name }}	ALL=(ALL:ALL) ALL
-	{% endif %}
+{% if user.unprivileged.sudo|lower == "passwordless" %}
+{{ user.unprivileged.name }}	ALL=(ALL:ALL) NOPASSWD: ALL
+{% elif user.unprivileged.sudo %}
+{{ user.unprivileged.name }}	ALL=(ALL:ALL) ALL
+{% endif %}
 {% endif %}
