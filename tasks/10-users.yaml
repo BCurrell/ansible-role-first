@@ -24,6 +24,7 @@
     path: "{{ output_user_ansible.home }}/.ssh/authorized_keys"
     line: "{{ item }}"
     state: present
+    create: true
     owner: "{{ user.ansible.name }}"
     group: "{{ user.ansible.name }}"
     mode: 0600
@@ -53,6 +54,7 @@
     path: "{{ output_user_unprivileged.home }}/.ssh/authorized_keys"
     line: "{{ item }}"
     state: present
+    create: true
     owner: "{{ user.unprivileged.name }}"
     group: "{{ user.unprivileged.name }}"
     mode: 0600
