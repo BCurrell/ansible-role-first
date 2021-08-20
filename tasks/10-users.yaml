@@ -33,7 +33,6 @@
   when: user.unprivileged.setup
   user:
     name: "{{ user.unprivileged.name }}"
-    password_lock: yes
     state: present
     system: no
   register: output_user_unprivileged
