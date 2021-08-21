@@ -7,3 +7,7 @@
 
 - name: Configure packages
   import_tasks: 30-configure-packages.yaml
+
+- name: Configure password locks
+  remote_user: "{{ user_ansible_name }}"
+  import_tasks: 40-password-locks.yaml
