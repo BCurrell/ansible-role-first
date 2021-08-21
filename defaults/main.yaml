@@ -1,6 +1,6 @@
 ---
 user_ansible_setup: yes
-user_ansible_name: "{{ ansible_user }}"
+user_ansible_name: ansible
 user_ansible_comment: Ansible
 user_ansible_sshkeys: []
 
