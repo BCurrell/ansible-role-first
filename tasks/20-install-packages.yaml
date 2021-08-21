@@ -3,6 +3,7 @@
   command:
     cmd: which apt-get
   register: command_apt_get
+  failed_when: false
   changed_when: false
 
 - name: Found aptitude
@@ -13,6 +14,7 @@
   command:
     cmd: which emerge
   register: command_emerge
+  failed_when: false
   changed_when: false
 
 - name: Found portage
