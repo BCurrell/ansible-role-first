@@ -1,59 +1,61 @@
 ---
 - name: Set up Ansible user
-  when: user.ansible.setup
+  when: user_ansible_setup
   user:
-    name: "{{ user.ansible.name }}"
+    name: "{{ user_ansible_name }}"
+    comment: "{{ user_ansible_comment }}"
     password_lock: yes
     state: present
     system: no
   register: output_user_ansible
 
 - name: Set up Ansible user SSH config directory
-  when: user.ansible.setup
+  when: user_ansible_setup
   file:
     path: "{{ output_user_ansible.home }}/.ssh/"
     state: directory
-    owner: "{{ user.ansible.name }}"
-    group: "{{ user.ansible.name }}"
+    owner: "{{ user_ansible_name }}"
+    group: "{{ user_ansible_name }}"
     mode: 0700
 
 - name: Set up Ansible user SSH keys
-  when: user.ansible.setup and user.ansible.public_keys
-  loop: "{{ user.ansible.public_keys }}"
+  when: user_ansible_setup and user_ansible_sshkeys
+  loop: "{{ user_ansible_sshkeys }}"
   lineinfile:
     path: "{{ output_user_ansible.home }}/.ssh/authorized_keys"
     line: "{{ item }}"
     state: present
     create: true
-    owner: "{{ user.ansible.name }}"
-    group: "{{ user.ansible.name }}"
+    owner: "{{ user_ansible_name }}"
+    group: "{{ user_ansible_name }}"
     mode: 0600
 
 - name: Set up unprivileged user
-  when: user.unprivileged.setup
+  when: user_unprivileged_setup
   user:
-    name: "{{ user.unprivileged.name }}"
+    name: "{{ user_unprivileged_name }}"
+    comment: "{{ user_unprivileged_comment }}"
     state: present
     system: no
   register: output_user_unprivileged
 
 - name: Set up unprivileged user SSH config directory
-  when: user.unprivileged.setup
+  when: user_unprivileged_setup
   file:
     path: "{{ output_user_unprivileged.home }}/.ssh/"
     state: directory
-    owner: "{{ user.unprivileged.name }}"
-    group: "{{ user.unprivileged.name }}"
+    owner: "{{ user_unprivileged_name }}"
+    group: "{{ user_unprivileged_name }}"
     mode: 0700
 
 - name: Set up unprivileged user SSH keys
-  when: user.unprivileged.setup and user.unprivileged.public_keys
-  loop: "{{ user.unprivileged.public_keys }}"
+  when: user_unprivileged_setup and user_unprivileged_sshkeys
+  loop: "{{ user_unprivileged_sshkeys }}"
   lineinfile:
     path: "{{ output_user_unprivileged.home }}/.ssh/authorized_keys"
     line: "{{ item }}"
     state: present
     create: true
-    owner: "{{ user.unprivileged.name }}"
-    group: "{{ user.unprivileged.name }}"
+    owner: "{{ user_unprivileged_name }}"
+    group: "{{ user_unprivileged_name }}"
     mode: 0600

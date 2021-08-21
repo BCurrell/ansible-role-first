@@ -1,14 +1,16 @@
 ---
-user:
-  ansible:
-    setup: yes
-    name: ansible
-    public_keys:
-      - ~
-    sudo: passwordless
-  unprivileged:
-    setup: no
-    name: brandon
-    public_keys:
-      - ~
-    sudo: yes
+user_ansible_setup: yes
+user_ansible_name: "{{ ansible_user }}"
+user_ansible_comment: Ansible
+user_ansible_sshkeys: []
+
+user_unprivileged_setup: no
+user_unprivileged_name: brandon
+user_unprivileged_comment: Brandon Currell
+user_unprivileged_sshkeys: []
+
+sudo_ansible: passwordless
+sudo_unprivileged: yes
+
+passwordlock_unprivileged: yes
+passwordlock_root: yes
