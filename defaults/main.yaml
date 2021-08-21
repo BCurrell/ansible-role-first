@@ -12,5 +12,4 @@ user_unprivileged_sshkeys: []
 sudo_ansible: passwordless
 sudo_unprivileged: yes
 
-passwordlock_unprivileged: yes
 passwordlock_root: yes
