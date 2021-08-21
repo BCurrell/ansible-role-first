@@ -17,7 +17,7 @@
     group: "{{ user.ansible.name }}"
     mode: 0700
 
-- name: Set up Ansible user SSH key
+- name: Set up Ansible user SSH keys
   when: user.ansible.setup and user.ansible.public_keys
   loop: "{{ user.ansible.public_keys }}"
   lineinfile:
@@ -46,7 +46,7 @@
     group: "{{ user.unprivileged.name }}"
     mode: 0700
 
-- name: Set up unprivileged user SSH key
+- name: Set up unprivileged user SSH keys
   when: user.unprivileged.setup and user.unprivileged.public_keys
   loop: "{{ user.unprivileged.public_keys }}"
   lineinfile:

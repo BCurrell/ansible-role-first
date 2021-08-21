@@ -1,0 +1,6 @@
+---
+- name: Configure sudo
+  template:
+    src: sudo/ansible.j2
+    dest: /etc/sudoers.d/ansible
+    mode: 0440

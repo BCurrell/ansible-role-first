@@ -9,7 +9,8 @@
       - app-portage/gentoolkit
     state: present
 
-- name: Install sudo
+- name: Install packages
   package:
-    name: app-admin/sudo
+    name:
+      - app-admin/sudo
     state: present

@@ -1,0 +1,20 @@
+---
+- name: Test for aptitude
+  command:
+    cmd: which apt-get
+  register: command_apt_get
+  changed_when: false
+
+- name: Found aptitude
+  when: "command_apt_get.rc == 0"
+  import_tasks: 20-install-packages/aptitude.yaml
+
+- name: Test for portage
+  command:
+    cmd: which emerge
+  register: command_emerge
+  changed_when: false
+
+- name: Found portage
+  when: "command_emerge.rc == 0"
+  import_tasks: 20-install-packages/portage.yaml

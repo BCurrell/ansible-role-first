@@ -1,6 +1,9 @@
 ---
 - name: Set up users
-  import_tasks: 10-users.yaml
+  import_tasks: 10-set-up-users.yaml
 
-- name: Set up packages
-  import_tasks: 20-packages.yaml
+- name: Install packages
+  import_tasks: 20-install-packages.yaml
+
+- name: Configure packages
+  import_tasks: 30-configure-packages.yaml

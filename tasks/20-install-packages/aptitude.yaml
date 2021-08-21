@@ -10,7 +10,7 @@
       - python3-apt
     state: present
 
-- name: Install sudo
+- name: Install packages
   package:
     name:
       - sudo
