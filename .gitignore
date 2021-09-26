@@ -23,4 +23,4 @@
 !vars/**
 
 # Unignore README
-!README
+!README.md
